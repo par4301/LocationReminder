@@ -1,10 +1,12 @@
 package com.udacity.project4.utils
 
 import android.view.View
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.udacity.project4.base.BaseRecyclerViewAdapter
+import com.udacity.project4.locationreminders.reminderslist.ReminderDataItem
 
 
 object BindingAdapters {
@@ -22,6 +24,12 @@ object BindingAdapters {
                 addData(itemList)
             }
         }
+    }
+
+    @BindingAdapter("app:reminderLocation")
+    @JvmStatic
+    fun setReminderLocation(view: TextView, reminderDataItem: ReminderDataItem) {
+        view.text = "${reminderDataItem.latitude}, ${reminderDataItem.longitude}"
     }
 
     /**
